@@ -1,6 +1,7 @@
 # Application
 bin/
-config/api.conf
+config/*.conf
+!config/function.example.conf
 
 # Temp Directory
 tmp/
