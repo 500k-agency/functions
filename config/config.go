@@ -6,6 +6,7 @@ import (
 
 	"github.com/500k-agency/function/lib/connect"
 	"github.com/500k-agency/function/product"
+	"github.com/500k-agency/function/waitlist"
 
 	"github.com/BurntSushi/toml"
 )
@@ -19,6 +20,9 @@ type Config struct {
 
 	// [products]
 	Products []product.Config `toml:"products"`
+
+	// [waitlist]
+	Waitlist waitlist.Config `toml:"waitlist"`
 }
 
 // NewFromSecrets instantiates the config struct from secrets

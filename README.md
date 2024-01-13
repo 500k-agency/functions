@@ -24,6 +24,14 @@ Sets up a cloud function as webhook to send thank you email on stripe
 
 3. Deploy the function with `make deploy`
 
+4. Edit the deployed cloud function
+
+5. Under "Runtime, build, connections and security settings", change `Runtime
+   service account` to the previously created account with permission to secrets
+   manager.
+
+6. Redeploy
+
 ### Stripe
 
 1. Register the webhook

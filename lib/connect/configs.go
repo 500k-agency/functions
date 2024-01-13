@@ -9,6 +9,7 @@ type Config struct {
 
 type Configs struct {
 	Stripe   Config         `toml:"stripe"`
+	Tally    Config         `toml:"tally"`
 	Sendgrid SendgridConfig `tomp:"sendgrid"`
 }
 
@@ -16,4 +17,5 @@ type Configs struct {
 func Configure(confs Configs) {
 	SetupStripe(confs.Stripe)
 	SetupSendgrid(confs.Sendgrid)
+	SetupTally(confs.Tally)
 }

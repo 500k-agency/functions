@@ -10,6 +10,7 @@ import (
 	"github.com/500k-agency/function/config"
 	"github.com/500k-agency/function/lib/connect"
 	"github.com/500k-agency/function/product"
+	"github.com/500k-agency/function/waitlist"
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 )
 
@@ -41,6 +42,7 @@ func main() {
 		}
 		connect.Configure(conf.Connect)
 		product.Setup(conf.Products)
+		waitlist.Setup(conf.Waitlist)
 	}
 
 	log.Printf("server running on %s:%s", hostname, port)

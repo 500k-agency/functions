@@ -63,7 +63,7 @@ conf:
 
 .PHONY: run
 run: conf
-	@(FUNCTION_TARGET=PurchaseHandler LOCAL_ONLY=true go run cmd/functions/main.go -config=${LOCAL_CONFIG})
+	@(FUNCTION_TARGET=${HANDLER} LOCAL_ONLY=true go run cmd/functions/main.go -config=${LOCAL_CONFIG})
 
 .PHONY: tail-prod
 tail-prod:
@@ -74,11 +74,11 @@ deploy:
 	@read -r -p "Are you sure you want to deploy function to production? y/n: " confirm; \
 	case $${confirm} in \
 		y)     \
-		gcloud functions deploy DevPurchaseHandler \
+		gcloud functions deploy ${HANDLER} \
 			--trigger-http \
 			--runtime=go121 \
-			--entry-point=PurchaseHandler \
-			--set-secrets '/etc/secrets/latest=CLOUDFN_SECRET_DEV:latest' \
+			--entry-point=${HANDLER} \
+			--set-secrets '/etc/secrets/latest=CLOUDFN_SECRET:latest' \
 			;; \
 		n) \
 			echo done; \
